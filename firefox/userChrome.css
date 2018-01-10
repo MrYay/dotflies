@@ -1,0 +1,244 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/** based off
+ * https://www.reddit.com/r/FirefoxCSS/comments/7l92q0/minimal_firefox_css/?st=jby2a3le&sh=1c931ee3
+ * https://pastebin.com/8vR1m570
+ */
+
+:root {
+
+	/** X COLORS **/
+	--bg: #151416;
+	--fg: #F79321;
+	--blk: #606060;
+	--red: #E84F4F;
+	--grn: #B8D68C;
+	--ylw: #E1AA5D;
+	--blu: #7DC1CF;
+	--mag: #9B64FB;
+	--cyn: #6D878D;
+	--wht: #dddddd;
+	--bblk: #aaa;
+	--bred: #D23D3D;
+	--bgrn: #A0CF5D;
+	--bylw: #F39D21;
+	--bblu: #4E9FB1;
+	--bmag: #8542FF;
+	--bcyn: #42717B;
+	--bwht: #dddddd;
+	--fontname-ui: "artwiz gelly";
+	--fontname-url: "xos4 Terminess Powerline";
+	--fontsize: 8;
+	/*********************************/
+	/**** TAB BAR VARIABLES ****/
+	/*********************************/
+	--bg-dark: var(--bg);
+	--bg-light: var(--bg) ;
+	--fg-dark: var(--blk);
+	--fg-light: var(--bblk);
+	--fg-focus: var(--fg);
+	--tab-fonts: var(--fontname-ui);
+	--tab-font-size: var(--fontsize);
+	--tab-text-align: center;
+	--tab-min-height: 32px !important;
+
+	/*********************************/
+	/**** URL BAR VARIABLES ****/
+	/*********************************/
+	--url-background: var(--bg-light);
+	--url-foreground: var(--blk);
+	--url-fonts: var(--fontname-url); 
+	--url-font-size: var(--fontsize);
+	--url-text-align: center;
+}
+
+/*********************************/
+/**** MENU BAR CONFIG ****/
+/*********************************/
+#navigator-toolbox, #main-window[sizemode="normal"] #navigator-toolbox, #main-window[sizemode="maximized"] #navigator-toolbox {
+	border-top: 0px !important;
+	border-left: 0px !important;
+	border-right: 0px !important;
+	border-bottom: 0px !important;
+	box-shadow: none !important;
+}
+
+
+/*********************************/
+/**** TAB BAR CONFIG ****/
+/*********************************/
+tab, .tabbrowser-tabs *|tab, .tabbrowser-arrowscrollbox, .tabbrowser-arrowscrollbox > .scrollbutton-up:hover, .tabbrowser-arrowscrollbox > .scrollbutton-down:hover {
+	background: var(--bg-dark) !important; 
+	color: var(--fg-dark) !important;
+	font-family: var(--tab-fonts) !important;
+	font-size: var(--tab-font-size); 
+	text-shadow: none !important; 
+	text-align: var(--tab-text-align) !important;
+}
+
+.tabbrowser-arrowscrollbox > * {
+	border: none !important;
+}
+
+/**** TAB LABEL (DEFAULT=CENTER) ****/
+.tab-label {
+	-moz-box-flex: 1 !important; 
+	text-align: var(--tab-text-align) !important;
+}
+
+/**** TAB WIDTH ****/
+.tabbrowser-tab[fadein]:not([pinned]) { 
+	min-width: 100px !important; 
+	max-width:  100% !important; 
+}
+
+/**** TAB SELECTED (DEFAULT=BG-LIGHT) ****/
+.tab-background-middle[selected="true"], .tabbrowser-tab[selected="true"], .tab-background-middle[selected="true"]:hover, .tabbrowser-tab[selected="true"]:hover {
+	background: var(--bg-light) !important;
+	color: var(--fg-focus) !important;
+	border: none;
+}
+
+/**** TAB HOVER (DEFAULT=BG-LIGHT) ****/
+.tabbrowser-tab[pinned="true"]:hover, .tabbrowser-tab:not([selected="true"]):hover {
+	background: var(--bg-light) !important;
+	color: var(--fg-light) !important;
+	border-top: 0px !important;
+}
+
+/**** NEW TAB UP LINE (DEFAULT=NONE) ****/
+.tabbrowser-tab *, .tabs-newtab-button * {
+	background: none !important; 
+	list-style-image: none !important;
+	margin: 0 0 0 0 !important; 
+	padding: 0 0 0 0 !important;
+	-moz-appearance: none !important;
+}
+
+/**** TAB SEPARATOR (DEFAULT=NONE)  ****/
+#TabsToolbar .tab-background {
+	background: transparent !important;
+	border-right: 0px !important;
+	border-left: 0px !important;
+}
+
+/**** TAB SEPARATOR (DEFAULT=NONE) ****/
+.tabbrowser-tab::before, .tabbrowser-tab::after {
+	display: none !important;
+}
+
+/**** TAB ICONS (DEFAULT=NONE)  ****/
+.tab-icon-image { 
+	display: none !important; 
+}
+
+/**** TAB BUTTONS  ****/
+.tabs-newtab-button, #new-tab-button, #alltabs-button { display: none; }
+#tabbrowser-tabs .tabbrowser-tab .tab-close-button { display: none !important };
+
+
+/*********************************/
+/**** URL BAR CONFIG ****/
+/*********************************/
+#urlbar, .urlbar-container {
+	background-color: var(--url-background) !important;
+	color: var(--url-foreground) !important;
+	font-family: var(--url-fonts) !important;
+	font-size: var(--url-font-size); 
+	text-shadow: none !important; 
+	text-align: var(--url-text-align) !important;
+	border: 0px !important;
+	box-shadow: none !important;
+}
+
+#urlbar:hover {
+	color: var(--bblk) !important;
+}
+
+#nav-bar[id], #PersonalToolbar[id], #web-developer-toolbar[id], #navigator-toolbox[tabsontop="true"] > #nav-bar[id], #navigator-toolbox[tabsontop="true"]:not([customizing]) > #nav-bar[collapsed="true"][id] + toolbar, #navigator-toolbox[tabsontop="true"]:not([customizing]) > #nav-bar[collapsed="true"] + #customToolbars + #PersonalToolbar[id], #navigator-toolbox[tabsontop="false"] > #nav-bar[id], #navigator-toolbox[tabsontop="false"]:not([customizing]) > #nav-bar[collapsed="true"][id] + toolbar, #navigator-toolbox[tabsontop="false"]:not([customizing]) > #nav-bar[collapsed="true"] + #customToolbars + #PersonalToolbar[id] {
+	background-image: none !important;
+	background: var(--url-background) !important;
+	background-color: var(--url-background) !important;
+	margin-top: 0px !important;
+	border-top: 0px !important;
+	border-bottom: 0px !important;
+}
+
+/**** URL BUTTONS (DEFAULT=NONE) ****/
+#forward-button, #back-button, #PanelUI-menu-button, #PanelUI-button, .restore-tabs-button {
+	display: none !important;
+}
+
+
+/*********************************/
+/**** OTHER CONFIGS ****/
+/*********************************/
+window:not([chromehidden~="toolbar"]) #urlbar-container > .toolbarbutton-1:-moz-any([disabled], :not([open]):not([disabled]):not(:active)) > .toolbarbutton-icon[class], #main-window:not([customizing]) #back-button[disabled] > .toolbarbutton-icon[class] {
+	background-image: none !important;
+	background-color: var(--url-background) !important;
+	box-shadow: 0px !important;
+	border: 0px !important;
+}
+
+browser[type="content-primary"], browser[type="content"] {
+	background: var(--bg-dark) !important;
+}
+
+browser, browser.display.background_color, tabbrowser tabpanels {
+	background-color: var(--bg-dark) !important;
+}
+
+
+/**** NAV-BAR ****/
+
+/** from left to right **/
+#stop-reload-button, #home-button,
+#customizableui-special-spring1,
+/** url bar start**/
+#identity-box,
+.urlbar-history-dropmarker,
+.urlbar-go-button,
+/** url bar end **/
+#page-action-buttons,
+/** #pageActionSeparator, #pageActionButton, #pocket-button-box, #pocket-button, #star-button-box, #star-button-animatable-box, **/
+#urlbar-search-splitter, #search-container,
+#customizableui-special-spring2
+{
+	display: none;
+}
+
+
+/** display nav-bar at the bottom **/
+#nav-bar {
+	-moz-box-ordinal-group: 2 !important;
+}
+
+#navigator-toolbox {
+	display: contents !important;
+}
+
+/**** FULLSCREEN MODE ****/
+
+#window-controls {
+	display: none;
+}
+
+/** hide random ugly 1px black bottom border **/
+#navigator-toolbox::after {
+	border-bottom: none !important;
+}
+
+/**** STATUS PANEL ****/
+
+statuspanel:not([inactive]) {
+	opacity: 0.9 !important;
+}
+
+.statuspanel-label {
+	background-color: var(--bg)  !important;
+	font-family: var(--fontname-url) !important;
+	font-size: var(--fontsize) !important;
+ 	color: var(--fg-light) !important;
+	border: none !important;
+}
+

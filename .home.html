@@ -3,8 +3,16 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<title>&nbsp</title>
 		<style type="text/css">
+:root {
+	--accent-fg: #F79321;
+	--accent-bg: #C76301;
+	--normal-fg: #777;
+	--second-fg: #444;
+	--normal-bg: #151515;
+}
+
 body {
-	background-color: #0b0b0f;
+	background-color: var(--normal-bg);
 	margin-left: 0px;
 	margin-top: 0px;
 	margin-right: 0px;
@@ -14,27 +22,27 @@ body {
 body,td,th {
 	font-family: "artwiz nu";
 	font-size: 12px;
-	color: #606060;
+	color: var(--normal-fg);
 }
 
 a:link {
-	color: #606060;
+	color: var(--normal-fg);
 	text-decoration: none;
 }
 
 a:visited {
-	color: #606060;
+	color: var(--normal-fg);
 	text-decoration: none;
 }
 
 a:hover {
-	text-shadow: 0px 0px 2px #277;
-	color: #55a7a1;
+	text-shadow: 0px 0px 2px #772;
+	color: var(--accent-fg);
 	text-decoration: none;
 }
 
 a:active {
-	color: #606060;
+	color: var(--normal-fg);
 	text-decoration: none;
 }
 
@@ -48,12 +56,12 @@ a:active {
 
 th {
 	text-align: right;
-	color: #333;
+	color: var(--second-fg);
 }
 
 th::after {
 	content: " >>";
-	color: #266;
+	color: var(--accent-bg);
 }
 
 td {
