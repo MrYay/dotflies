@@ -1,0 +1,41 @@
+super + Return
+	urxvt -cd $HOME
+
+super + q
+	firefox
+
+super + i
+	urxvt -e weechat
+
+#super + m
+#	urxvt -e mutt
+
+Print
+	scrot -e 'mv $f ~/Pictures/Screenshots/ 2> /dev/null' && dunstify -u low "Screenshot taken"
+
+XF86Audio{Raise,Lower}Volume
+	volume.sh {up, down}
+
+XF86AudioMute
+	volume.sh mute
+
+XF86MonBrightness{Up,Down}
+	backlight.sh {up, down}
+
+XF86Sleep
+	sleep 0.4 && xset dpms force off
+
+shift + XF86Sleep
+	poweroff
+
+ctrl + XF86Sleep
+	i3lock.sh
+
+super + {Up,Down,Left,Right}
+	mpc {toggle,stop,prev,next}
+
+super + r
+	dmenu_run -x 832 -y 444 -w 256 -h 32 -l 2 -p " " -fn 'xos4 Terminess Powerline' -nb '#121114' -nf '#333333' -sb '#121114' -sf '#f79321' -o 0.96 -dim 0.5
+
+super + t
+	thunar $HOME
