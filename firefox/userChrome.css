@@ -8,8 +8,8 @@
 :root {
 
 	/** X COLORS **/
-	--bg: #151416;
-	--fg: #F79321;
+	--bg: #0b0b0f;
+	--fg: #55a7a1;
 	--blk: #606060;
 	--red: #E84F4F;
 	--grn: #B8D68C;
@@ -140,7 +140,26 @@ tab, .tabbrowser-tabs *|tab, .tabbrowser-arrowscrollbox, .tabbrowser-arrowscroll
 /*********************************/
 /**** URL BAR CONFIG ****/
 /*********************************/
-#urlbar, .urlbar-container {
+#urlbar:not(:-moz-lwtheme):not([focused="true"]), .searchbar-textbox:not(:-moz-lwtheme):not([focused="true"]) {
+	border-color: none !important;
+}
+
+/*
+#urlbar, .searchbar-textbox {
+	-moz-appearance: none;
+	background-clip: content-box;
+	border: 1px solid hsla(240,5%,5%,.25);
+	border-radius: var(--toolbarbutton-border-radius);
+	box-shadow: 0 1px 4px rgba(0,0,0,.05);
+	padding: 0;
+	margin: 3px 5px;
+	min-height: 30px;
+	overflow: -moz-hidden-unscrollable;
+}
+*/
+
+#urlbar, .urlbar-container, .searchbar-textbox {
+	-moz-appearance: none !important;
 	background-color: var(--url-background) !important;
 	color: var(--url-foreground) !important;
 	font-family: var(--url-fonts) !important;
@@ -208,9 +227,10 @@ browser, browser.display.background_color, tabbrowser tabpanels {
 }
 
 
-/** display nav-bar at the bottom **/
+/** display nav-bar at the bottom and remove box-shadow **/
 #nav-bar {
 	-moz-box-ordinal-group: 2 !important;
+	box-shadow: none !important;
 }
 
 #navigator-toolbox {
@@ -230,6 +250,10 @@ browser, browser.display.background_color, tabbrowser tabpanels {
 
 /**** STATUS PANEL ****/
 
+statuspanel {
+	right: 0px;
+}
+
 statuspanel:not([inactive]) {
 	opacity: 0.9 !important;
 }
@@ -238,7 +262,7 @@ statuspanel:not([inactive]) {
 	background-color: var(--bg)  !important;
 	font-family: var(--fontname-url) !important;
 	font-size: var(--fontsize) !important;
- 	color: var(--fg-light) !important;
+ 	color: var(--blk) !important;
 	border: none !important;
 }
 
